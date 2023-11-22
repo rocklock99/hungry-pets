@@ -37,20 +37,21 @@ function addPet() {
 // starts game and sets the gameInterval
 function startGame() {
   let valueAdjustments = setInterval(function () {
+    render();
     for (let pet of petList) {
       if (pet.isAlive) {
         if (pet.hunger < 100) {
-          pet.hunger += 5;
+          pet.hunger += 1;
         }
         if (pet.love > 0) {
-          pet.love -= 5;
+          pet.love -= 1;
         }
         if (pet.hunger === 100 || pet.love === 0) {
           pet.isAlive = false;
         }
       }
     }
-    render();
+    //render();
     // stop adjusting pet values if all pets are dead (game ends/loss condition)
     if (checkIfAllDead()) {
       clearInterval(valueAdjustments);
@@ -106,6 +107,7 @@ function renderCard(pet) {
   cardEmoji.textContent = pet.emoji;
   cardEmoji.addEventListener("click", function () {
     pet.love = 100;
+    console.log(pet);
   });
   cardContainer.append(cardEmoji);
   const cardName = document.createElement("h2"); // name
