@@ -41,19 +41,20 @@ function startGame() {
     for (let pet of petList) {
       if (pet.isAlive) {
         if (pet.hunger < 100) {
-          pet.hunger += 1;
+          pet.hunger += 5;
         }
         if (pet.love > 0) {
-          pet.love -= 1;
+          pet.love -= 5;
         }
         if (pet.hunger === 100 || pet.love === 0) {
           pet.isAlive = false;
         }
       }
     }
-    //render();
+
     // stop adjusting pet values if all pets are dead (game ends/loss condition)
     if (checkIfAllDead()) {
+      render();
       clearInterval(valueAdjustments);
     }
   }, 1000);
@@ -72,9 +73,6 @@ function render() {
   let hungerMeter, loveMeter, card, meterFeedContainer, emoji, epitaph;
   for (let pet of petList) {
     let index = petList.indexOf(pet);
-    console.log(
-      `${pet.name} has hunger value: ${pet.hunger} and love value: ${pet.love}`
-    );
     card = document.querySelector(`#card${index}`);
     hungerMeter = document.querySelector(`#hunger${index}`);
     loveMeter = document.querySelector(`#love${index}`);
@@ -107,7 +105,6 @@ function renderCard(pet) {
   cardEmoji.textContent = pet.emoji;
   cardEmoji.addEventListener("click", function () {
     pet.love = 100;
-    console.log(pet);
   });
   cardContainer.append(cardEmoji);
   const cardName = document.createElement("h2"); // name
