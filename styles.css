@@ -1,0 +1,67 @@
+.hidden {
+  display: none;
+}
+
+.dead {
+  background-color: red;
+  color: white;
+}
+
+#game-display-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* border: 1px solid purple; */
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid gray;
+  width: 150px;
+  height: 250px;
+}
+
+.card-emojis {
+  font-size: 50px;
+  margin-top: 10px;
+  /* border: 1px solid blue; */
+}
+
+.card-emojis:hover {
+  cursor: url("./assets/heart.png"), auto;
+}
+
+.card-names {
+  font-size: 20px;
+  margin-top: -40px;
+  /* border: 1px solid black; */
+}
+
+.card-hunger-titles {
+  margin-top: -3px;
+}
+
+.card-hunger-meters,
+.card-love-meters {
+  margin-top: -15px;
+}
+
+.card-love-meters {
+  margin-bottom: 15px;
+}
+
+.card-epitaphs {
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+.meter-feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid green; */
+  width: 100%;
+}
