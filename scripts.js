@@ -41,10 +41,10 @@ function startGame() {
     for (let pet of petList) {
       if (pet.isAlive) {
         if (pet.hunger < 100) {
-          pet.hunger += 5;
+          pet.hunger += 1;
         }
         if (pet.love > 0) {
-          pet.love -= 5;
+          pet.love -= 1;
         }
         if (pet.hunger === 100 || pet.love === 0) {
           pet.isAlive = false;
